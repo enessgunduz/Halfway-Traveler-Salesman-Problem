@@ -1,11 +1,9 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.sql.Time;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 class City {
     int id;
@@ -23,12 +21,19 @@ class Main {
     private static List<City> cities;
 
     public static void main(String[] args) {
+        SimpleDateFormat formatter = new SimpleDateFormat("HH:mm:ss");
+        Date date = new Date();
+        System.out.println(formatter.format(date));
+
         String inputFile = "input.txt";
         String outputFile = "output.txt";
 
         cities = readInputFile(inputFile);
         List<Integer> tour = findHalfTour(cities);
         writeOutputFile(outputFile, tour);
+
+        Date date2 = new Date();
+        System.out.println(formatter.format(date2));
     }
 
     private static List<City> readInputFile(String inputFile) {
