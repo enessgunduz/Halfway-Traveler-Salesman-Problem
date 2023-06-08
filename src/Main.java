@@ -33,7 +33,7 @@ class Main {
         writeOutputFile(outputFile, tour);
 
         Date date2 = new Date();
-        System.out.println(formatter.format(date2));
+        System.out.println("\n"+formatter.format(date2));
     }
 
     private static List<City> readInputFile(String inputFile) {
@@ -82,6 +82,8 @@ class Main {
         // Choose the next closest city until we have visited half of the cities
         City currCity = startCity;
         for (int i = 0; i < halfN - 1; i++) {
+            if (i%1000==0)
+                System.out.print("-");
             int minDistance = Integer.MAX_VALUE;
             City nextCity = null;
 
